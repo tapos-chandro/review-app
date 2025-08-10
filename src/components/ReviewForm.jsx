@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { setLocalStorageData } from "../hooks/useLocalStorage";
 
 
-const ReviewForm = () => {
+const ReviewForm = ({ reviews, setReviews }) => {
 
-    const [reviews, setReviews] = useState([]);
-
+    console.log(reviews, 'review')
 
     // Handle form submit
     const handleSubmit = (e) => {
@@ -22,7 +22,7 @@ const ReviewForm = () => {
         setReviews(updatedReviews);
 
         // Save to localStorage
-        localStorage.setItem("reviews", JSON.stringify(updatedReviews));
+        setLocalStorageData('reviews', updatedReviews);
 
         // Optional: reset form
         e.target.reset();
