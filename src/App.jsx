@@ -12,7 +12,7 @@ function App() {
         <ReviewForm reviews={reviews} setReviews={setReviews}></ReviewForm>
       </div>
 
-      <ReviewList reviews={reviews}></ReviewList>
+      <ReviewList reviews={reviews} setReviews={setReviews}></ReviewList>
     </div>
   )
 }

@@ -1,24 +1,23 @@
-
 const getStoredData = (storedName) => {
-    console.log("getStoredData", storedName);
     try {
         const item = localStorage.getItem(storedName);
-        console.log("getStoredData item", item);
-        // return
-        return  JSON.parse(item) ;
+        if (item === null || item === undefined) {
+            return null;  // Nothing stored yet
+        }
+        return JSON.parse(item);
     } catch (error) {
-        console.error(error);
+        console.error("Error reading from localStorage:", error);
+        return null;
     }
 }
 
-const setLocalStorageData = ( storedName , data ) => {
+
+const setLocalStorageData = (storedName, data) => {
     try {
         localStorage.setItem(storedName, JSON.stringify(data));
     } catch (error) {
-        console.error(error);
+        console.error("Error writing to localStorage:", error);
     }
 }
 
-
-export  { getStoredData , setLocalStorageData};
-
+export { getStoredData, setLocalStorageData };
